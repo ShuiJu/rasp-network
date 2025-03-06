@@ -287,9 +287,9 @@ fn handle_client(stream: TcpStream, count: usize, times: usize, no_log: bool) ->
         // Wait for confirmation
         // println!("[SERVER] Waiting for client confirmation");
         let mut confirm = [0u8; 1];
-        if reader.read_exact(&mut confirm).is_ok() {
-            // println!("[SERVER] Received confirmation: 0x{:02X}", confirm[0]);
-        }
+        // if reader.read_exact(&mut confirm).is_ok() {
+        //     println!("[SERVER] Received confirmation: 0x{:02X}", confirm[0]);
+        // }
 
         current_iter += 1;
     }
@@ -449,14 +449,6 @@ fn start_server(port: u16, no_log: bool) {
         eprintln!("Error handling client: {}", e);
     }
 }
-
-// // 添加十六进制转换工具函数
-// fn bytes_to_hex(bytes: &[u8]) -> String {
-//     bytes.iter()
-//         .map(|b| format!("{:02X}", b))
-//         .collect::<Vec<String>>()
-//         .join(" ")
-// }
 
 
 fn main() {
